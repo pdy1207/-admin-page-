@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관리자</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="write-popup">
+        <div class="editor">
+          <div class="input-box">
+            <label for="i_empno">사원 번호 : </label>
+            <input
+              id="i_empno"
+              type="number"
+              placeholder="급여를 입력하세요..."
+            />
+          </div>
+          <div class="input-box">
+            <label for="i_ename">사원 이름 : </label>
+            <input
+              id="i_ename"
+              type="text"
+              placeholder="이름을 입력하세요..."
+            />
+          </div>
+          <div class="input-box">
+            <label for="i_job">담당 업무 : </label>
+            <input
+              id="i_job"
+              type="text"
+              placeholder="담당 업무를 입력하세요..."
+            />
+          </div>
+          <div class="input-box">
+            <label for="i_sal">급여 : </label>
+            <input
+              id="i_sal"
+              type="number"
+              placeholder="급여를 입력하세요..."
+            />
+          </div>
+          <div class="input-box">
+            <label for="i_comm">보너스 : </label>
+            <input
+              id="i_comm"
+              type="number"
+              placeholder="급여를 입력하세요..."
+            />
+          </div>
+          <div class="input-box">
+            <label for="i_deptno">부서번호 : </label>
+            <input
+              id="i_deptno"
+              type="number"
+              placeholder="부서번호 입력하세요..."
+            />
+          </div>
+          <div class="btn-area">
+            <a href="#" class="btn-cancel">취소</a>
+            <a
+              id="empSubmit"
+              href="#"
+              class="btn-success"
+              onclick="getEmpInsert()"
+              >등록</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 사원 수정 -->
+      <div class="update-popup">
+        <div class="editor">
+          <div class="close">
+            <a href="#" class="btn-close">닫기</a>
+          </div>
+          <div class="input-box">
+            <label for="u_empno">사원 번호 : </label>
+            <input id="u_empno" type="number" value="7899" />
+          </div>
+          <div class="input-box">
+            <label for="u_ename">사원 이름 : </label>
+            <input id="u_ename" type="text" value="박도영" />
+          </div>
+          <div class="input-box">
+            <label for="u_job">담당 업무 : </label>
+            <input id="u_job" type="text" value="개발자" />
+          </div>
+          <div class="input-box">
+            <label for="u_sal">급여 : </label>
+            <input id="u_sal" type="number" value="100" />
+          </div>
+          <div class="input-box">
+            <label for="u_comm">보너스 : </label>
+            <input id="u_comm" type="number" value="0" />
+          </div>
+          <div class="input-box">
+            <label for="u_deptno">부서번호 : </label>
+            <input id="u_deptno" type="number" value="0" />
+          </div>
+          <div class="btn-area">
+            <input id="boardIdHidden" type="hidden" />
+            <a
+              id="contentUpdate"
+              href="#"
+              class="btn-update"
+              onclick="getEmpUpdate()"
+              >수정</a
+            >
+            <a
+              id="contentDelete"
+              href="#"
+              class="btn-delete"
+              onclick="getEmpUseUpdate()"
+              >삭제</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="index.html">
+              <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+              <span class="title">ADMIN PAGE</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <span class="icon"
+                ><ion-icon name="home-outline"></ion-icon
+              ></span>
+              <span class="title">사원 목록</span>
+            </a>
+          </li>
+          <li>
+            <a href="dept.html">
+              <span class="icon"
+                ><ion-icon name="person-outline"></ion-icon
+              ></span>
+              <span class="title">부서 목록</span>
+            </a>
+          </li>
+          <li>
+            <a href="logs.html">
+              <span class="icon"
+                ><ion-icon name="lock-closed-outline"></ion-icon
+              ></span>
+              <span class="title">접속 기록</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="log-out-outline"></ion-icon
+              ></span>
+              <span class="title">Sign Out</span>
+            </a>
+          </li>
+          <li>
+            <!-- <a href="main.html">
+              <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+              <span class="title">ADMIN</span>
+            </a> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- main -->
+    <div class="main">
+      <!-- cards -->
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div id="studentsCnt" class="numbers"></div>
+            <div class="cardName">사원 수</div>
+          </div>
+          <div class="iconBx">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div id="boardCnt" class="numbers"></div>
+            <div class="cardName">사원 평균급여</div>
+          </div>
+          <div class="iconBx">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div id="writerCnt" class="numbers"></div>
+            <div class="cardName">부서 수</div>
+          </div>
+          <div class="iconBx">
+            <i class="fa-solid fa-building"></i>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div id="viewsCnt" class="numbers"></div>
+            <div class="cardName">사원 보너스 합</div>
+          </div>
+          <div class="iconBx">
+            <i class="fa-sharp fa-solid fa-sack-dollar"></i>
+          </div>
+        </div>
+        <div class="box testbox">
+          <div class="card">
+            <div class="cardName">
+              <form action="list_tot.php" method="POST">
+                <select name="catgo" class="pl">
+                  <!-- <option value="biz_none" disabled selected>                
+                                    </option>              -->
+                  <option value="biz_name">이름</option>
+                  <option value="biz_rc">RC번호</option>
+                  <option value="biz_phone">휴대폰</option>
+                  <option value="biz_birth">생년월일</option>
+                </select>
+                <input class="input" type="text" name="search" size="20" />
+                <input
+                  id="date_to"
+                  style="border: none"
+                  type="date"
+                  name="date_to"
+                />
+                <ion-icon
+                  name="arrow-forward-outline"
+                  role="img"
+                  class="md hydrated"
+                  aria-label="arrow forward outline"
+                ></ion-icon>
+                <input
+                  id="date_from"
+                  style="border: none"
+                  type="date"
+                  name="date_from"
+                />
+                <button class="user_btn">검색</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table -->
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>사원 목록</h2>
+            <a href="#" onclick="downloadExcelFile()" class="excel-btn"
+              >엑셀 다운로드</a
+            >
+            <a href="#" class="btn">사원 추가</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>사원 번호</th>
+                <th>사원 이름</th>
+                <th>사원 직책</th>
+                <th>사원 급여</th>
+                <th>입사 날짜</th>
+                <th>부서 이름</th>
+              </tr>
+            </thead>
+            <tbody id="empData"></tbody>
+          </table>
+          <div class="pagination">
+            <!--    <a>Previous</a>
+                    <a>1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a>4</a>
+                    <a>5</a>
+                    <a>Next</a>  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://kit.fontawesome.com/e53b3f6679.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(".btn").click(function () {
+      $(".write-popup").css("display", "block").hide().fadeIn();
+    });
+    $(".btn-cancel").click(function () {
+      $(".write-popup").css("display", "none").fadeOut();
+    });
+    $(".btn-close").click(function () {
+      location.reload().fadeOut(); //새로 고침
+    });
+    let list = document.querySelectorAll(".navigation li");
+    function activeLink() {
+      list.forEach((item) => {
+        item.classList.remove("hovered");
+      });
+      this.classList.add("hovered");
+    }
+    list.forEach((item) => {
+      item.addEventListener("mouseover", activeLink);
+    });
+
+    function getBoard() {
+      $(".update-popup").css("display", "block");
+    }
+  </script>
+  <script src="js/script.js"></script>
+</html>
