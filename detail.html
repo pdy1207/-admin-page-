@@ -154,6 +154,14 @@
             </a>
           </li>
           <li>
+            <a href="logs.html">
+              <span class="icon"
+                ><ion-icon name="download-outline"></ion-icon
+              ></span>
+              <span class="title">엑셀 다운로드</span>
+            </a>
+          </li>
+          <li>
             <a href="#">
               <span class="icon"
                 ><ion-icon name="log-out-outline"></ion-icon
@@ -210,40 +218,35 @@
             <i class="fa-sharp fa-solid fa-sack-dollar"></i>
           </div>
         </div>
-        <div class="box testbox">
-          <div class="card">
-            <div class="cardName">
-              <form action="list_tot.php" method="POST">
-                <select name="catgo" class="pl">
-                  <!-- <option value="biz_none" disabled selected>                
-                                    </option>              -->
-                  <option value="biz_name">이름</option>
-                  <option value="biz_rc">RC번호</option>
-                  <option value="biz_phone">휴대폰</option>
-                  <option value="biz_birth">생년월일</option>
-                </select>
-                <input class="input" type="text" name="search" size="20" />
-                <input
-                  id="date_to"
-                  style="border: none"
-                  type="date"
-                  name="date_to"
-                />
-                <ion-icon
-                  name="arrow-forward-outline"
-                  role="img"
-                  class="md hydrated"
-                  aria-label="arrow forward outline"
-                ></ion-icon>
-                <input
-                  id="date_from"
-                  style="border: none"
-                  type="date"
-                  name="date_from"
-                />
-                <button class="user_btn">검색</button>
-              </form>
-            </div>
+      </div>
+      <div class="cardBox">
+        <div id="cardBox2" class="card cardBox2">
+          <div class="cardName cardName2">
+            <form action="list_tot.php" method="POST">
+              <select name="catgo" class="pl">
+                <!-- <option value="biz_none" disabled selected>                
+                                  </option>              -->
+                <option value="biz_name">이름</option>
+                <option value="biz_rc">RC번호</option>
+                <option value="biz_phone">휴대폰</option>
+                <option value="biz_birth">생년월일</option>
+              </select>
+              <input class="input" type="text" name="search" size="20" />
+              <input
+                id="date_to"
+                style="border: none"
+                type="date"
+                name="date_to"
+              />
+              <span id="next">→</span>
+              <input
+                id="date_from"
+                style="border: none"
+                type="date"
+                name="date_from"
+              />
+              <button class="user_btn">검색</button>
+            </form>
           </div>
         </div>
       </div>
@@ -251,10 +254,8 @@
       <div class="details">
         <div class="recentOrders">
           <div class="cardHeader">
-            <h2>사원 목록</h2>
-            <a href="#" onclick="downloadExcelFile()" class="excel-btn"
-              >엑셀 다운로드</a
-            >
+            <h2>전체 인원</h2>
+
             <a href="#" class="btn">사원 추가</a>
           </div>
           <table>
