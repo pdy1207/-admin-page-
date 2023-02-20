@@ -9,7 +9,7 @@ body {
   overflow-y: auto;
 }
 :root {
-  --blue: #d7c49e;
+  --black: #222;
   --white: #fff;
   --grey: #f5f5f5;
   --black1: #222;
@@ -23,8 +23,8 @@ body {
   position: fixed;
   width: 250px;
   height: 100%;
-  background-color: var(--blue);
-  border-left: 10px solid var(--blue);
+  background-color: var(--black);
+  border-left: 10px solid var(--black);
   transition: 0.5s;
   overflow: hidden;
 }
@@ -61,7 +61,7 @@ body {
 
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
-  color: var(--blue);
+  color: var(--black);
 }
 
 .navigation ul li a .icon {
@@ -159,7 +159,7 @@ body {
 }
 .cardHeader h2 {
   font-weight: 600;
-  color: var(--blue);
+  color: var(--black);
   margin-left: 50px;
 }
 .excel-btn {
@@ -174,7 +174,7 @@ body {
 .btn {
   position: relative;
   padding: 1%;
-  background: var(--blue);
+  background: var(--black);
   text-decoration: none;
   color: var(--white);
   border-radius: 6px;
@@ -211,7 +211,7 @@ tr:nth-child(even) {
 }
 
 .details table tbody tr:hover {
-  background: var(--blue);
+  background: var(--black);
   color: var(--white);
   transition: 0.4s;
   cursor: pointer;
@@ -253,7 +253,11 @@ tr:nth-child(even) {
   grid-gap: 20px;
   left: 20px;
 }
-
+.cardBox2 {
+  width: 400%;
+  height: 50px;
+  margin-top: 15px;
+}
 .cardBox .card {
   position: relative;
   background-color: var(--white);
@@ -268,7 +272,7 @@ tr:nth-child(even) {
   position: relative;
   font-weight: 500;
   font-size: 2.5em;
-  color: var(--blue);
+  color: var(--black);
 }
 
 .cardBox .card .cardName {
@@ -278,18 +282,27 @@ tr:nth-child(even) {
 }
 .cardBox .card .iconBx {
   font-size: 3.5em;
-  color: var(--blue);
+  color: var(--black);
 }
 
+#cardBox2:hover {
+  background-color: unset;
+}
 .cardBox .card:hover {
-  background-color: var(--blue);
+  background-color: var(--black);
 }
-
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBx {
   color: var(--white);
 }
+.cardName2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 /* 글 작성 */
 .write-popup {
   z-index: 1;
@@ -435,7 +448,7 @@ tr:nth-child(even) {
   padding: 0.5rem 0.75rem;
   text-decoration: none;
   background-color: var(--white);
-  color: var(--blue);
+  color: var(--black);
   border: 1px solid #dddfeb;
   line-height: 1.45;
   font-size: 18px;
@@ -444,14 +457,36 @@ tr:nth-child(even) {
 }
 .pagination a:hover {
   cursor: pointer;
-  background-color: var(--blue);
+  background-color: var(--black);
   color: var(--white);
 }
 .logout {
   text-decoration: none;
   font-size: 20px;
-  background-color: var(--blue);
+  background-color: var(--black);
   color: var(--white);
   padding: 0.5rem 0.75rem;
   border-radius: 5px;
+}
+.pl {
+  padding: 15px;
+  border: none;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+input {
+  height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.user_btn {
+  cursor: pointer;
+  padding: 15px 15px;
+  margin-left: 30px;
+  background-color: var(--black);
+  color: white;
+  border-radius: 6px;
+}
+.user_btn:hover {
 }
