@@ -1,0 +1,40 @@
+@media screen and (max-width: 992px) {
+  .navigation {
+    display: none;
+  }
+  .main {
+    width: calc(100% - 40px) !important;
+    left: 30px !important;
+  }
+  .cardBox2 {
+    width: calc(100% - -500px) !important;
+    height: 0px;
+  }
+  .cardBox .card .cardName {
+    font-size: 0.8rem !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+  .cardBox {
+    width: 200% !important;
+  }
+  .card:nth-child(even) {
+    display: none !important;
+  }
+  .main {
+    width: calc(100% - 40px) !important;
+    left: 7px !important;
+  }
+  th:nth-child(odd) {
+    display: none !important;
+  }
+  .cardBox2 {
+    display: none !important;
+  }
+  .cardBox .card .cardName {
+    font-size: 0.8rem !important;
+  }
+}
